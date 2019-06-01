@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GL",
+    "\\GL\\Models"
   ],
+  "SelectedNode": "\\GL.sln",
   "PreviewInSolutionExplorer": false
 }

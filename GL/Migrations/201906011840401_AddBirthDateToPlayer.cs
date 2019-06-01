@@ -1,0 +1,18 @@
+namespace GL.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class AddBirthDateToPlayer : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Players", "BirthDate", c => c.DateTime(nullable: false));
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.Players", "BirthDate");
+        }
+    }
+}

@@ -111,3 +111,6 @@ C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.dll
 C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.pdb
 C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.InitialModel.resources
 C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.csproj.GenerateResource.cache
+C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.AddGenderToPlayer.resources
+C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.AddBirthDateToPlayer.resources
+C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.ApplyAnnotationsToPlayerModel.resources

@@ -11,14 +11,18 @@
     <thead>
         <tr>
             <th>Nazwa gracza</th>
+            <th>Płeć</th>
+            <th>Data urodzenia</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var player in Model)
         {
-            <tr>
-                <td>@Html.ActionLink(player.Name, "Details", "Players", new { id = player.Id }, null)</td>
-            </tr>
+        <tr>
+            <td>@Html.ActionLink(player.Name, "Details", "Players", new { id = player.Id }, null)</td>
+            <td>@player.Gender</td>
+            <td>@player.BirthDate.ToString("dd MMMM, yyyy")</td>
+        </tr>
         }
     </tbody>
 </table>

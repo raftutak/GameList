@@ -7,30 +7,33 @@ namespace GL.Controllers
 {
     public class PlayersController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public PlayersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ViewResult Index()
         {
-            var players = GetPlayers();
+            var players = _context.Players.ToList();
 
             return View(players);
         }
 
         public ActionResult Details(int id)
         {
-            var player = GetPlayers().SingleOrDefault(c => c.Id == id);
+            var player = _context.Players.SingleOrDefault(c => c.Id == id);
 
             if (player == null)
                 return HttpNotFound();
 
             return View(player);
-        }
-
-        private IEnumerable<Player> GetPlayers()
-        {
-            return new List<Player>
-            {
-                new Player { Id = 1, Name = "John Smith"},
-                new Player { Id = 2, Name = "Mary Williams"}
-            };
         }
     }
 }

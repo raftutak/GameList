@@ -192,6 +192,18 @@
     <Compile Include="Migrations\201906011813493_InitialModel.Designer.cs">
       <DependentUpon>201906011813493_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906011838209_AddGenderToPlayer.cs" />
+    <Compile Include="Migrations\201906011838209_AddGenderToPlayer.Designer.cs">
+      <DependentUpon>201906011838209_AddGenderToPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906011840401_AddBirthDateToPlayer.cs" />
+    <Compile Include="Migrations\201906011840401_AddBirthDateToPlayer.Designer.cs">
+      <DependentUpon>201906011840401_AddBirthDateToPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906011855309_ApplyAnnotationsToPlayerModel.cs" />
+    <Compile Include="Migrations\201906011855309_ApplyAnnotationsToPlayerModel.Designer.cs">
+      <DependentUpon>201906011855309_ApplyAnnotationsToPlayerModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Game.cs" />
@@ -282,6 +294,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906011813493_InitialModel.resx">
       <DependentUpon>201906011813493_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011838209_AddGenderToPlayer.resx">
+      <DependentUpon>201906011838209_AddGenderToPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011840401_AddBirthDateToPlayer.resx">
+      <DependentUpon>201906011840401_AddBirthDateToPlayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011855309_ApplyAnnotationsToPlayerModel.resx">
+      <DependentUpon>201906011855309_ApplyAnnotationsToPlayerModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
