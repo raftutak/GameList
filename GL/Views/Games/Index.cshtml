@@ -1,0 +1,24 @@
+﻿@model IEnumerable<GL.Models.Game>
+
+@{
+    ViewBag.Title = "Games";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Gier</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Tytuł gry</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
