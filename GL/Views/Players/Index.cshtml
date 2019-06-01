@@ -20,8 +20,9 @@
         {
         <tr>
             <td>@Html.ActionLink(player.Name, "Details", "Players", new { id = player.Id }, null)</td>
-            <td>@player.Gender</td>
+            <td>@player.PlayerGender</td>
             <td>@player.BirthDate.ToString("dd MMMM, yyyy")</td>
+            <td>@Html.ActionLink("Edycja", "Edit", "Players", new { id = player.Id }, null)</td>
         </tr>
         }
     </tbody>
