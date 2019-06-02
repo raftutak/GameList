@@ -2,30 +2,46 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                var $games = $('#api-output');
+                $.ajax({
+                    url: "/api/WebAPI",
+                    success: function (games) {
+                        $.each(games, function (i, item) {
+                            $games.append('<li><b>'+item.Name+'</b>, '+item.Genre+', '+item.Distributor+', '+item.ReleaseYear+'</li>');
+                        });
+                    }
+                });
+            });
+        </script>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div style="margin-top: 50px;"class="row">
+    <div class="col-md-6">
+        <h2>Utworzone API</h2>
+        <p>Utworzony moduł WebAPI korzystający z bazdy danych projektu. Dane wywołane na stronie przy użyciu jQuery (GET).</p>
+        <ul id="api-output">
+        </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
+
+    <script type="text/javascript">
+        $(function () {
+            var $weather = $('#api-external');
+            $.ajax({
+                url: "https://api.apixu.com/v1/current.json?key=ea18da65078a4c6ea4b15915190206&q=Poznan",
+                success: function (weather) {
+                    $.each(weather, function (i, item) {
+                        $weather.append('<b>' + item.name + '</b>, ' + item.country + ', ' + item.temp_c + ', ' + item.wind_kph + '');
+                    });
+                }
+            });
+        });
+    </script>
+
+    <div class="col-md-6">
+        <h2>Zewnętrzne API</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p id="api-external"></p>
     </div>
 </div>

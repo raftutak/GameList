@@ -18,12 +18,7 @@ namespace GL.Controllers
         {
             _context.Dispose();
         }
-         
-        public ActionResult New()
-        {
-            return View();
-        }
-         
+
         [HttpPost]
         public ActionResult Save(Player player)
         {
@@ -33,7 +28,9 @@ namespace GL.Controllers
             {
                 var playerInDb = _context.Players.Single(c => c.Id == player.Id);
 
-                TryUpdateModel(playerInDb);
+                playerInDb.Name = player.Name;
+                playerInDb.BirthDate = player.BirthDate;
+                playerInDb.PlayerGender = player.PlayerGender;
             }
 
             _context.SaveChanges();

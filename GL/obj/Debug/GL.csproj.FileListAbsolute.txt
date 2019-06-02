@@ -117,3 +117,4 @@ C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.ApplyAnnotationsToPlay
 C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.AddGameProperties.resources
 C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.AddGamePropertiesRetry.resources
 C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.ModifiedGenders.resources
+C:\Users\rawin\source\repos\GL\GL\obj\Debug\GL.Migrations.UpdateGameClass.resources

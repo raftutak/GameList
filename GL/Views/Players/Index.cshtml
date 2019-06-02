@@ -7,7 +7,7 @@
 
 <h2>Lista Graczy</h2>
 
-<table class="table table-bordered table-hover">
+<table id="players" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Nazwa gracza</th>
@@ -23,7 +23,29 @@
             <td>@player.PlayerGender</td>
             <td>@player.BirthDate.ToString("dd MMMM, yyyy")</td>
             <td>@Html.ActionLink("Edycja", "Edit", "Players", new { id = player.Id }, null)</td>
+            <td><button data-player-id="@player.Id" class="btn-link jquery-delete">Usuń</button></td>
         </tr>
         }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#players .jquery-delete").on("click", function () {
+                var button = $(this);
+
+                if (confirm("Czy na pewno chcesz usunąć?")) {
+                    $.ajax({
+                        url: "/api/PlayersAPI/" + button.attr("data-player-id"),
+                        method: "DELETE",
+                        success: function () {
+                            button.parents("tr").remove();
+                        }
+                    })
+                };
+            });
+        });
+    </script>   
+}
