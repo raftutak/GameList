@@ -19,6 +19,31 @@ namespace GL.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Save(Game game)
+        {
+            if (game.Id == 0)
+                _context.Games.Add(game);
+            else
+            {
+                var gameInDb = _context.Games.Single(c => c.Id == game.Id);
+
+                gameInDb.Name = game.Name;
+                gameInDb.Genre = game.Genre;
+                gameInDb.Distributor = game.Distributor;
+                gameInDb.ReleaseYear = game.ReleaseYear;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Games");
+        }
+
         public ViewResult Index()
         {
             var games = _context.Games.ToList();
@@ -34,6 +59,16 @@ namespace GL.Controllers
                 return HttpNotFound();
 
             return View(game);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var game = _context.Games.SingleOrDefault(c => c.Id == id);
+
+            if (game == null)
+                return HttpNotFound();
+
+            return View("GameForm", game);
         }
     }
 }

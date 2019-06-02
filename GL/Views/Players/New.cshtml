@@ -1,0 +1,28 @@
+﻿@using GL.Models
+@model GL.Models.Player
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dodaj gracza</h2>
+
+@using (Html.BeginForm("Save", "Players"))
+{
+    <div class="form-group">
+        <label for="Name">Nazwa gracza</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="BirthDate">Data urodzenia</label>
+        @Html.TextBoxFor(m => m.BirthDate, "{0:dd MMMM, yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="dropdown">
+        <label for="PlayerGender">Płeć</label>
+        @Html.DropDownListFor(m => m.PlayerGender, new SelectList(Enum.GetValues(typeof(Player.Gender))), "Wybierz płeć", new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" style="margin-top: 25px;" class="btn btn-primary">Dodaj</button>
+}
+

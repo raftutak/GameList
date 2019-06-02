@@ -19,9 +19,19 @@ namespace GL.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Save(Player player)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CustomerForm");
+            }
+
             if (player.Id == 0)
                 _context.Players.Add(player);
             else
@@ -38,6 +48,7 @@ namespace GL.Controllers
             return RedirectToAction("Index", "Players");
         }
 
+        [Authorize]
         public ViewResult Index()
         {
             var players = _context.Players.ToList();

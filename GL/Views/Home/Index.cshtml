@@ -27,12 +27,12 @@
 
     <script type="text/javascript">
         $(function () {
-            var $weather = $('#api-external');
+            var $test = $('#api-external');
             $.ajax({
-                url: "https://api.apixu.com/v1/current.json?key=ea18da65078a4c6ea4b15915190206&q=Poznan",
-                success: function (weather) {
-                    $.each(weather, function (i, item) {
-                        $weather.append('<b>' + item.name + '</b>, ' + item.country + ', ' + item.temp_c + ', ' + item.wind_kph + '');
+                url: "https://jsonplaceholder.typicode.com/todos/1",
+                success: function (test) {
+                    $.each(test, function (i, item) {
+                        $test.append('<b>' + item.userId + '</b>, ' + item.id + ', ' + item.title + ', ' + item.completed);
                     });
                 }
             });
