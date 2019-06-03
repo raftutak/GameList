@@ -27,11 +27,6 @@ namespace GL.Controllers
         [HttpPost]
         public ActionResult Save(Player player)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("CustomerForm");
-            }
-
             if (player.Id == 0)
                 _context.Players.Add(player);
             else

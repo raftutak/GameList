@@ -17,31 +17,32 @@
             });
         </script>
 
-<div style="margin-top: 50px;"class="row">
-    <div class="col-md-6">
-        <h2>Utworzone API</h2>
-        <p>Utworzony moduł WebAPI korzystający z bazdy danych projektu. Dane wywołane na stronie przy użyciu jQuery (GET).</p>
-        <ul id="api-output">
-        </ul>
-    </div>
+        <div style="margin-top: 50px;" class="row">
+            <div class="col-md-6">
+                <h2>Utworzone API</h2>
+                <p>Utworzony moduł WebAPI korzystający z bazdy danych projektu. Dane wywołane na stronie przy użyciu jQuery (GET).</p>
+                <ul id="api-output"></ul>
+            </div>
 
-    <script type="text/javascript">
-        $(function () {
-            var $test = $('#api-external');
-            $.ajax({
-                url: "https://jsonplaceholder.typicode.com/todos/1",
-                success: function (test) {
-                    $.each(test, function (i, item) {
-                        $test.append('<b>' + item.userId + '</b>, ' + item.id + ', ' + item.title + ', ' + item.completed);
+            <script type="text/javascript">
+                function search() {
+                    var searchValue = $('#foo').val();
+                    var $view = $('#api-external');
+                    $.get("https://recipe-search.projektstudencki.pl/recipe/searchRecipes/?search=" + searchValue + "&count=5", function (data) {
+                        var allRecipes = data.recipes;
+                        for (var i = 0; i <= allRecipes.length; i++) {
+                            $view.append('<li>Nazwa przepisu: <b>' + allRecipes[i].title + '</b>, blog: ' + allRecipes[i].blog + '</li>');
+                        }
                     });
                 }
-            });
-        });
-    </script>
+            </script>
 
-    <div class="col-md-6">
-        <h2>Zewnętrzne API</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p id="api-external"></p>
-    </div>
-</div>
+
+            <div class="col-md-6">
+                <h2>Zewnętrzne API</h2>
+                <p>API z przepisami na projekt inżynierski.</p>
+                <input class="form-control" style="margin-bottom: 10px;" id="foo" type="text" />
+                <button style="margin-bottom: 20px;" value="Szukaj" class="btn btn-default" onclick="search()">Szukaj</button>
+                <p id="api-external"></p>
+            </div>
+        </div>
